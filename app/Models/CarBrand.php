@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CarBrand extends Model
 {
     use HasFactory,SoftDeletes;
+
+    protected $table= 'car_brands';
+
+    public function getModels(){
+        return $this ->hasMany(CarModel::class,'brand_id','id');
+    }
 }
